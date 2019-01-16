@@ -10,7 +10,7 @@ import shutil
 import tensorflow as tf
 
 #directories
-logdir= 'graph_log/'
+logdir= 'graph_log_1/'
 labels = 'labels_1024.tsv'
 sprites = 'sprite_1024.png'
 
@@ -103,7 +103,7 @@ def mnist_model(learning_rate, use_two_fc, use_two_conv, hparam):
 		embedding_size = 7 * 7 * 64
 
 		#logits 
-		logits = fc_layer(flattened, 7 * 7 * 64, 'fc')
+		logits = fc_layer(flattened, 7 * 7 * 64, 10, 'fc')
 
 	with tf.name_scope('cross_entropy'):
 		xent = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = logits, labels = y), name = 'xent')
